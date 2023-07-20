@@ -57,4 +57,3 @@ def calculator():
         print()  # Print an empty line for readability
 
 calculator()
-
