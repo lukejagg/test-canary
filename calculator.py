@@ -12,7 +12,7 @@ def divide(x, y):
         raise ValueError("Cannot divide by zero!")
     return x / y
 
-def calculator():
+def calculator(argument1, argument2):
     print("Welcome to the Interactive Calculator!")
 
     while True:
@@ -56,4 +56,4 @@ def calculator():
 
         print()  # Print an empty line for readability
 
-calculator()
+calculator(argument1, argument2)
