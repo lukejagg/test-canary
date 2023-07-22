@@ -1,11 +1,20 @@
 /* Add CSS styles to target specific elements in frontend.html */
+    input[type="submit"] {
+        background-color: blue;
+        color: white;
+        padding: 10px;
+        border: none;
+        cursor: pointer;
+    }
 
-/* Style the heading */
-h1 {
-    color: blue;
-    font-size: 24px;
-    margin-bottom: 20px;
-}
+    #pop-button {
+        /* Add your desired styling properties here */
+        background-color: red;
+        color: white;
+        padding: 5px;
+        border: none;
+        cursor: pointer;
+    }
 
 /* Style the image */
 img {
@@ -24,13 +33,4 @@ input[type="number"],
 select {
     padding: 5px;
     margin-bottom: 10px;
-}
-
-/* Style the submit button */
-input[type="submit"] {
-    background-color: blue;
-    color: white;
-    padding: 10px;
-    border: none;
-    cursor: pointer;
 }
