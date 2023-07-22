@@ -5,6 +5,9 @@ import torchvision
 import torchvision.transforms as transforms
 import yaml
 
+def example():
+    a = 4
+
 # Define the Convolutional Neural Network architecture
 class CNN(nn.Module):
     def __init__(self, num_classes):
@@ -92,5 +95,3 @@ with torch.no_grad():
         _, predicted = torch.max(outputs.data, 1)
         total += labels.size(0)
         correct += (predicted == labels).sum().item()
-
-print(f'Accuracy on the test set: {(100 * correct / total):.2f}%')
