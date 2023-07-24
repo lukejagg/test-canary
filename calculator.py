@@ -50,8 +50,11 @@ def calculator():
             result = multiply(num1, num2)
             print(f"Result: {num1} * {num2} = {result}")
         elif choice == '4':
-            result = divide(num1, num2)
-            print(f"Result: {num1} / {num2} = {result}")
+            try:
+                result = divide(num1, num2)
+                print(f"Result: {num1} / {num2} = {result}")
+            except ValueError as e:
+                print(str(e))
         elif choice == '5':
             result = exponent(num1, num2)
             print(f"Result: {num1} ^ {num2} = {result}")
