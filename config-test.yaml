@@ -1,0 +1,4 @@
+model:
+  name: "ResNet101"
+  num_classes: 10
+  pretrained: true
