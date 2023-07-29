@@ -34,3 +34,12 @@ input[type="submit"] {
     border: none;
     cursor: pointer;
 }
+
+#pop {
+    color: white;
+    background-color: red;
+    font-size: 14px;
+    margin: 10px;
+    padding: 10px;
+    cursor: pointer;
+}
