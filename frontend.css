@@ -34,3 +34,12 @@ input[type="submit"] {
     border: none;
     cursor: pointer;
 }
+
+/* Style the pop button */
+#popButton {
+    background-color: red;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+}
