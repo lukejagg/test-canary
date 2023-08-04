@@ -27,7 +27,7 @@ select {
 }
 
 /* Style the submit button */
-input[type="submit"] {
+input[type="submit"], input[type="button"] {
     background-color: blue;
     color: white;
     padding: 10px;
