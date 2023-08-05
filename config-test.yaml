@@ -1,0 +1,20 @@
+# Assuming the contents of config.yaml are as follows:
+
+model:
+  name: ResNet101
+  input_size: [3, 224, 224]
+  num_classes: 1000
+
+data:
+  dataset: ImageNet
+  batch_size: 256
+  num_workers: 4
+
+training:
+  learning_rate: 0.1
+  momentum: 0.9
+  weight_decay: 0.0001
+  epochs: 90
+
+logging:
+  print_freq: 10
