@@ -1,0 +1,16 @@
+# Assuming the contents of config.yaml are as follows:
+
+model:
+  name: "ResNet101" # Changed from "ResNet50"
+  version: "1.0"
+  type: "classification"
+
+data:
+  type: "images"
+  train_path: "/path/to/train/data"
+  test_path: "/path/to/test/data"
+
+training:
+  batch_size: 32
+  epochs: 100
+  learning_rate: 0.001
