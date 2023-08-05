@@ -1,0 +1,23 @@
+# Assuming the contents of config.yaml are as follows:
+
+model:
+  name: ResNet101
+  version: 1.0
+  description: ResNet101 model for image classification
+
+data:
+  train: /path/to/train/data
+  test: /path/to/test/data
+  validation: /path/to/validation/data
+
+training:
+  batch_size: 32
+  epochs: 100
+  learning_rate: 0.001
+
+evaluation:
+  metrics: ['accuracy', 'precision', 'recall', 'f1']
+
+logging:
+  level: INFO
+  format: '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
