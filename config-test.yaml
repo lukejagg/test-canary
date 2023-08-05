@@ -1,0 +1,15 @@
+# Configuration for the model and training setup
+
+model:
+  name: "ResNet101"
+  num_classes: 10
+  pretrained: true
+
+training:
+  batch_size: 64
+  num_epochs: 10
+  learning_rate: 0.001
+
+data:
+  dataset_path: "/path/to/dataset"
+  num_workers: 4
