@@ -2,6 +2,7 @@ import torch
 import torch.nn as nn
 import torch.optim as optim
 import torchvision
+import torchvision.models as models
 import torchvision.transforms as transforms
 import yaml
 
@@ -51,8 +52,11 @@ testset = torchvision.datasets.CIFAR10(root='./data', train=False, download=True
 testloader = torch.utils.data.DataLoader(testset, batch_size=config['training']['batch_size'], shuffle=False,
                                          num_workers=2)
 
-# Instantiate the CNN model
-model = CNN(config['model']['num_classes']).to(device)
+# Instantiate the model
+if config['model']['name'] == 'ResNet101':
+    model = models.resnet101(pretrained=config['model']['pretrained']).to(device)
+else:
+    model = CNN(config['model']['num_classes']).to(device)
 
 # Define the loss function and optimizer
 criterion = nn.CrossEntropyLoss()
@@ -94,4 +98,3 @@ with torch.no_grad():
         correct += (predicted == labels).sum().item()
 
 print(f'Accuracy on the test set: {(100 * correct / total):.2f}%')
-
