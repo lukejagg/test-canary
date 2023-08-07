@@ -4,7 +4,7 @@ import torch.optim as optim
 import torchvision
 import torchvision.transforms as transforms
 import yaml
-from cnn import CNN
+from ./cnn import CNN
 
 # Load the configuration file
 with open('config.yaml', 'r') as f:
