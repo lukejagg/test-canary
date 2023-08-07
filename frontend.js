@@ -1,8 +1,4 @@
-// Select the "Pop" button
-var popButton = document.querySelector('input[value="Pop"]');
-
-// Add an event listener to the "Pop" button
-popButton.addEventListener('click', function() {
-    // Display an alert message when the "Pop" button is clicked
-    alert('Pop button clicked!');
-});
+// Function to be called when the "Pop" button is clicked
+function popFunction() {
+    alert("Pop button clicked!");
+}
