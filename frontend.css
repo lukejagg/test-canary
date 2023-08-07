@@ -34,3 +34,8 @@ input[type="submit"] {
     border: none;
     cursor: pointer;
 }
+
+/* Style the Pop button */
+input[type="button"] {
+    /* Add your desired styles here */
+}
