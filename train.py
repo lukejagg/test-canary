@@ -1,7 +1,7 @@
 import torch
 import torch.nn as nn
 import torch.optim as optim
-import torchvision
+from torchvision.models import resnet101
 import torchvision.transforms as transforms
 import yaml
 
@@ -59,28 +59,31 @@ criterion = nn.CrossEntropyLoss()
 optimizer = optim.SGD(model.parameters(), lr=config['training']['learning_rate'], momentum=0.9)
 
 # Training loop
-for epoch in range(config['training']['epochs']):
-    running_loss = 0.0
-    for i, data in enumerate(trainloader, 0):
-        # Get the inputs and labels
-        inputs, labels = data[0].to(device), data[1].to(device)
+try:
+    for epoch in range(config['training']['epochs']):
+        running_loss = 0.0
+        for i, data in enumerate(trainloader, 0):
+            # Get the inputs and labels
+            inputs, labels = data[0].to(device), data[1].to(device)
 
-        # Zero the parameter gradients
-        optimizer.zero_grad()
+            # Zero the parameter gradients
+            optimizer.zero_grad()
 
-        # Forward + backward + optimize
-        outputs = model(inputs)
-        loss = criterion(outputs, labels)
-        loss.backward()
-        optimizer.step()
+            # Forward + backward + optimize
+            outputs = model(inputs)
+            loss = criterion(outputs, labels)
+            loss.backward()
+            optimizer.step()
 
-        # Print statistics
-        running_loss += loss.item()
-        if i % 200 == 199:    # Print every 200 mini-batches
-            print(f'[{epoch + 1}, {i + 1}] loss: {running_loss / 200:.3f}')
-            running_loss = 0.0
+            # Print statistics
+            running_loss += loss.item()
+            if i % 200 == 199:    # Print every 200 mini-batches
+                print(f'[{epoch + 1}, {i + 1}] loss: {running_loss / 200:.3f}')
+                running_loss = 0.0
 
-print("Training finished.")
+    print("Training finished.")
+except PermissionError:
+    print("PermissionError: Unable to write to log file. Please check the file permissions.")
 
 # Evaluate the model on the test set
 correct = 0
@@ -94,4 +97,3 @@ with torch.no_grad():
         correct += (predicted == labels).sum().item()
 
 print(f'Accuracy on the test set: {(100 * correct / total):.2f}%')
-
