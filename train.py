@@ -31,7 +31,7 @@ testloader = torch.utils.data.DataLoader(testset, batch_size=config['training'][
                                          num_workers=2)
 
 # Instantiate the CNN model
-model = CNN(config['model']['num_classes']).to(device)
+model = CNN(config['model']['num_classes'], config['model']['input_channels']).to(device)
 
 # Define the loss function and optimizer
 criterion = nn.CrossEntropyLoss()
