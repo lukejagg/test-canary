@@ -4,7 +4,13 @@ import torch.optim as optim
 import torchvision
 import torchvision.transforms as transforms
 import yaml
-from cnn import CNN
+try:
+    # The CNN class was moved to a separate file (cnn.py) to improve code modularity and maintainability.
+    # The import statement is used to import the CNN class from the cnn.py file.
+    from cnn import CNN
+except ImportError:
+    print("Error: Failed to import CNN from cnn.py. Please ensure that the file is in the correct directory.")
+    raise
 
 
 # Load the configuration file
