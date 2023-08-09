@@ -58,6 +58,9 @@ model = CNN(config['model']['num_classes']).to(device)
 criterion = nn.CrossEntropyLoss()
 optimizer = optim.SGD(model.parameters(), lr=config['training']['learning_rate'], momentum=0.9)
 
+# Compile the model using PyTorch Dynamo
+model = torch.compile(model, backend="aot_eager")
+
 # Training loop
 for epoch in range(config['training']['epochs']):
     running_loss = 0.0
@@ -94,4 +97,3 @@ with torch.no_grad():
         correct += (predicted == labels).sum().item()
 
 print(f'Accuracy on the test set: {(100 * correct / total):.2f}%')
-
