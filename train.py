@@ -58,29 +58,33 @@ model = CNN(config['model']['num_classes']).to(device)
 criterion = nn.CrossEntropyLoss()
 optimizer = optim.SGD(model.parameters(), lr=config['training']['learning_rate'], momentum=0.9)
 
-# Training loop
-for epoch in range(config['training']['epochs']):
-    running_loss = 0.0
-    for i, data in enumerate(trainloader, 0):
-        # Get the inputs and labels
-        inputs, labels = data[0].to(device), data[1].to(device)
+def train_model(model, criterion, optimizer, trainloader, epochs):
+    losses = []
+    for epoch in range(epochs):
+        running_loss = 0.0
+        for i, data in enumerate(trainloader, 0):
+            # Get the inputs and labels
+            inputs, labels = data[0].to(device), data[1].to(device)
 
-        # Zero the parameter gradients
-        optimizer.zero_grad()
+            # Zero the parameter gradients
+            optimizer.zero_grad()
 
-        # Forward + backward + optimize
-        outputs = model(inputs)
-        loss = criterion(outputs, labels)
-        loss.backward()
-        optimizer.step()
+            # Forward + backward + optimize
+            outputs = model(inputs)
+            loss = criterion(outputs, labels)
+            loss.backward()
+            optimizer.step()
 
-        # Print statistics
-        running_loss += loss.item()
-        if i % 200 == 199:    # Print every 200 mini-batches
-            print(f'[{epoch + 1}, {i + 1}] loss: {running_loss / 200:.3f}')
-            running_loss = 0.0
+            # Append to losses
+            running_loss += loss.item()
+            if i % 200 == 199:    # Append every 200 mini-batches
+                losses.append(running_loss / 200)
+                running_loss = 0.0
+    return losses
 
+losses = train_model(model, criterion, optimizer, trainloader, config['training']['epochs'])
 print("Training finished.")
+print(losses)
 
 # Evaluate the model on the test set
 correct = 0
@@ -94,4 +98,3 @@ with torch.no_grad():
         correct += (predicted == labels).sum().item()
 
 print(f'Accuracy on the test set: {(100 * correct / total):.2f}%')
-
