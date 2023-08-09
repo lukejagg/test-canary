@@ -54,6 +54,7 @@ testloader = torch.utils.data.DataLoader(testset, batch_size=config['training'][
 # Instantiate the CNN model
 model = CNN(config['model']['num_classes']).to(device)
 
+# In PyTorch, defining the loss function and the optimizer is the equivalent of compiling the model in Keras
 # Define the loss function and optimizer
 criterion = nn.CrossEntropyLoss()
 optimizer = optim.SGD(model.parameters(), lr=config['training']['learning_rate'], momentum=0.9)
@@ -94,4 +95,3 @@ with torch.no_grad():
         correct += (predicted == labels).sum().item()
 
 print(f'Accuracy on the test set: {(100 * correct / total):.2f}%')
-
