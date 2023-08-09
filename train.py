@@ -58,9 +58,27 @@ model = CNN(config['model']['num_classes']).to(device)
 criterion = nn.CrossEntropyLoss()
 optimizer = optim.SGD(model.parameters(), lr=config['training']['learning_rate'], momentum=0.9)
 
-# Training with torch.compile
-compiled_model = torch.compile(model, optimizer, criterion)
-compiled_model.fit(trainloader, epochs=config['training']['epochs'])
+# Training loop
+for epoch in range(config['training']['epochs']):
+    running_loss = 0.0
+    for i, data in enumerate(trainloader, 0):
+        # Get the inputs and labels
+        inputs, labels = data[0].to(device), data[1].to(device)
+
+        # Zero the parameter gradients
+        optimizer.zero_grad()
+
+        # Forward + backward + optimize
+        outputs = model(inputs)
+        loss = criterion(outputs, labels)
+        loss.backward()
+        optimizer.step()
+
+        # Print statistics
+        running_loss += loss.item()
+        if i % 200 == 199:    # Print every 200 mini-batches
+            print(f'[{epoch + 1}, {i + 1}] loss: {running_loss / 200:.3f}')
+            running_loss = 0.0
 
 print("Training finished.")
 
@@ -76,3 +94,4 @@ with torch.no_grad():
         correct += (predicted == labels).sum().item()
 
 print(f'Accuracy on the test set: {(100 * correct / total):.2f}%')
+\n
