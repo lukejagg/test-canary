@@ -20,4 +20,3 @@ class CNN(nn.Module):
         x = self.pool(x)
         x = x.view(x.size(0), -1)
         x = self.fc(x)
-        r
