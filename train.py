@@ -74,3 +74,4 @@ with torch.no_grad():
         correct += (predicted == labels).sum().item()
 
 print(f'Accuracy on the test set: {(100 * correct / total):.2f}%')
+\n
