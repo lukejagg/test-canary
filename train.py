@@ -1,4 +1,5 @@
 import torch
+import torch.jit
 import torch.nn as nn
 import torch.optim as optim
 import torchvision
@@ -16,6 +17,7 @@ class CNN(nn.Module):
         self.relu2 = nn.ReLU()
         self.fc = nn.Linear(32 * 8 * 8, num_classes)
 
+    @torch.jit.export
     def forward(self, x):
         x = self.conv1(x)
         x = self.relu1(x)
@@ -53,6 +55,7 @@ testloader = torch.utils.data.DataLoader(testset, batch_size=config['training'][
 
 # Instantiate the CNN model
 model = CNN(config['model']['num_classes']).to(device)
+model = torch.jit.script(model)
 
 # Define the loss function and optimizer
 criterion = nn.CrossEntropyLoss()
@@ -94,4 +97,3 @@ with torch.no_grad():
         correct += (predicted == labels).sum().item()
 
 print(f'Accuracy on the test set: {(100 * correct / total):.2f}%')
-
