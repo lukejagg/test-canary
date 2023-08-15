@@ -1,9 +1,14 @@
+import os
+import sys
 import torch
 import torch.nn as nn
 import torch.optim as optim
 import torchvision
 import torchvision.transforms as transforms
 import yaml
+
+def file_exists(file_path):
+    return os.path.isfile(file_path)
 
 # Define the Convolutional Neural Network architecture
 class CNN(nn.Module):
@@ -30,6 +35,16 @@ class CNN(nn.Module):
 # Load the configuration file
 with open('config.yaml', 'r') as f:
     config = yaml.safe_load(f)
+
+# Check the existence of the data files
+if not file_exists(config['data']['train_dataset']) or not file_exists(config['data']['test_dataset']):
+    print("Error: One or more data files do not exist.")
+    sys.exit(1)
+
+# Check the write permission of the log file
+if not os.access(config['logging']['log_file'], os.W_OK):
+    print("Error: The log file cannot be written to.")
+    sys.exit(1)
 
 # Set up the device for training
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
