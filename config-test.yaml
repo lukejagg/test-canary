@@ -9,11 +9,11 @@ training:
   epochs: 50
 
 data:
-  train_dataset: "train_data.csv"
-  test_dataset: "test_data.csv"
+  train_dataset: "${TRAIN_DATASET_PATH}"
+  test_dataset: "${TEST_DATASET_PATH}"
   shuffle: true
 
 logging:
   log_file: "log.txt"
-  verbose: false
+  verbose: true
 
