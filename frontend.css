@@ -1,13 +1,36 @@
-LyogQWRkIENTUyBzdHlsZXMgdG8gdGFyZ2V0IHNwZWNpZmljIGVsZW1lbnRz
-IGluIGZyb250ZW5kLmh0bWwgKi8KCi8qIFN0eWxlIHRoZSBoZWFkaW5nICov
-CmgxIHsKICAgIGNvbG9yOiBibHVlOwogICAgZm9udC1zaXplOiAyNHB4Owog
-ICAgbWFyZ2luLWJvdHRvbTogMjBweDsKfQoKLyogU3R5bGUgdGhlIGltYWdl
-ICovCmltZyB7CiAgICB3aWR0aDogMjAwcHg7CiAgICBoZWlnaHQ6IGF1dG87
-CiAgICBtYXJnaW4tYm90dG9tOiAyMHB4Owp9CgovKiBTdHlsZSB0aGUgZm9y
-bSAqLwpmb3JtIHsKICAgIG1hcmdpbi1ib3R0b206IDIwcHg7Cn0KCi8qIFN0
-eWxlIHRoZSBpbnB1dCBmaWVsZHMgKi8KaW5wdXRbdHlwZT0ibnVtYmVyIl0s
-CnNlbGVjdCB7CiAgICBwYWRkaW5nOiA1cHg7CiAgICBtYXJnaW4tYm90dG9t
-OiAxMHB4Owp9CgovKiBTdHlsZSB0aGUgc3VibWl0IGJ1dHRvbiAqLwppbnB1
-dFt0eXBlPSJzdWJtaXQiXSB7CiAgICBiYWNrZ3JvdW5kLWNvbG9yOiBibHVl
-OwogICAgY29sb3I6IHdoaXRlOwogICAgcGFkZGluZzogMTBweDsKICAgIGJv
-cmRlcjogbm9uZTsKICAgIGN1cnNvcjogcG9pbnRlcjsKfQ==
+/* Add CSS styles to target specific elements in frontend.html */
+
+/* Style the heading */
+h1 {
+    color: blue;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Style the image */
+img {
+    width: 200px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+/* Style the form */
+form {
+    margin-bottom: 20px;
+}
+
+/* Style the input fields */
+input[type="number"],
+select {
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+/* Style the submit button */
+input[type="submit"] {
+    background-color: blue;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+}
