@@ -1,11 +1,11 @@
 model:
-  name: "ResNet101"
+  name: "ResNet50"
   num_classes: 10
   pretrained: true
 
 training:
-  batch_size: 64
-  learning_rate: 0.001
+  batch_size: 128
+  learning_rate: 0.01
   epochs: 50
 
 data:
