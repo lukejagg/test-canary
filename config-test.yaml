@@ -1,19 +1,7 @@
-model:
-  name: "ResNet50"
-  num_classes: 10
-  pretrained: true
-
-training:
-  batch_size: 128
-  learning_rate: 0.01
-  epochs: 50
-
-data:
-  train_dataset: "${TRAIN_DATASET_PATH}"
-  test_dataset: "${TEST_DATASET_PATH}"
-  shuffle: true
-
-logging:
-  log_file: "log.txt"
-  verbose: true
-
+bW9kZWw6CiAgbmFtZTogIlJlc05ldDUwIgogIG51bV9jbGFzc2VzOiAxMAog
+IHByZXRyYWluZWQ6IHRydWUKCnRyYWluaW5nOgogIGJhdGNoX3NpemU6IDEy
+OAogIGxlYXJuaW5nX3JhdGU6IDAuMDEKICBlcG9jaHM6IDUwCgpkYXRhOgog
+IHRyYWluX2RhdGFzZXQ6ICIke1RSQUlOX0RBVEFTRVRfUEFUSH0iCiAgdGVz
+dF9kYXRhc2V0OiAiJHtURVNUX0RBVEFTRVRfUEFUSH0iCiAgc2h1ZmZsZTog
+dHJ1ZQoKbG9nZ2luZzoKICBsb2dfZmlsZTogImxvZy50eHQiCiAgdmVyYm9z
+ZTogdHJ1ZQoK
