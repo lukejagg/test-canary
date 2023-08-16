@@ -1,22 +1,16 @@
-import torch.nn as nn
-
-class CNN(nn.Module):
-    def __init__(self, num_classes):
-        super(CNN, self).__init__()
-        self.conv1 = nn.Conv2d(3, 16, kernel_size=3, stride=1, padding=1)
-        self.relu1 = nn.ReLU()
-        self.pool = nn.MaxPool2d(kernel_size=2, stride=2)
-        self.conv2 = nn.Conv2d(16, 32, kernel_size=3, stride=1, padding=1)
-        self.relu2 = nn.ReLU()
-        self.fc = nn.Linear(32 * 8 * 8, num_classes)
-
-    def forward(self, x):
-        x = self.conv1(x)
-        x = self.relu1(x)
-        x = self.pool(x)
-        x = self.conv2(x)
-        x = self.relu2(x)
-        x = self.pool(x)
-        x = x.view(x.size(0), -1)
-        x = self.fc(x)
-
+aW1wb3J0IHRvcmNoLm5uIGFzIG5uCgpjbGFzcyBDTk4obm4uTW9kdWxlKToK
+ICAgIGRlZiBfX2luaXRfXyhzZWxmLCBudW1fY2xhc3Nlcyk6CiAgICAgICAg
+c3VwZXIoQ05OLCBzZWxmKS5fX2luaXRfXygpCiAgICAgICAgc2VsZi5jb252
+MSA9IG5uLkNvbnYyZCgzLCAxNiwga2VybmVsX3NpemU9Mywgc3RyaWRlPTEs
+IHBhZGRpbmc9MSkKICAgICAgICBzZWxmLnJlbHUxID0gbm4uUmVMVSgpCiAg
+ICAgICAgc2VsZi5wb29sID0gbm4uTWF4UG9vbDJkKGtlcm5lbF9zaXplPTIs
+IHN0cmlkZT0yKQogICAgICAgIHNlbGYuY29udjIgPSBubi5Db252MmQoMTYs
+IDMyLCBrZXJuZWxfc2l6ZT0zLCBzdHJpZGU9MSwgcGFkZGluZz0xKQogICAg
+ICAgIHNlbGYucmVsdTIgPSBubi5SZUxVKCkKICAgICAgICBzZWxmLmZjID0g
+bm4uTGluZWFyKDMyICogOCAqIDgsIG51bV9jbGFzc2VzKQoKICAgIGRlZiBm
+b3J3YXJkKHNlbGYsIHgpOgogICAgICAgIHggPSBzZWxmLmNvbnYxKHgpCiAg
+ICAgICAgeCA9IHNlbGYucmVsdTEoeCkKICAgICAgICB4ID0gc2VsZi5wb29s
+KHgpCiAgICAgICAgeCA9IHNlbGYuY29udjIoeCkKICAgICAgICB4ID0gc2Vs
+Zi5yZWx1Mih4KQogICAgICAgIHggPSBzZWxmLnBvb2woeCkKICAgICAgICB4
+ID0geC52aWV3KHguc2l6ZSgwKSwgLTEpCiAgICAgICAgeCA9IHNlbGYuZmMo
+eCkKCg==
