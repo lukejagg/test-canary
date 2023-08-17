@@ -25,7 +25,7 @@ def calculator():
         print("3. Multiply")
         print("4. Divide")
         print("5. Exponent")
-        print("6. Exit")
+        print("6. Quit")
 
         choice = input("Enter your choice (1-5): ")
 
