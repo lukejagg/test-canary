@@ -12,9 +12,6 @@ def divide(x, y):
         raise ValueError("Cannot divide by zero!")
     return x / y
 
-def exponent(base, exponent):
-    return base ** exponent
-
 def calculator():
     print("Welcome to the Interactive Calculator!")
 
@@ -24,8 +21,7 @@ def calculator():
         print("2. Subtract")
         print("3. Multiply")
         print("4. Divide")
-        print("5. Exponent")
-        print("6. Quit")
+        print("5. Quit")
 
         choice = input("Enter your choice (1-5): ")
 
@@ -55,9 +51,6 @@ def calculator():
                 print(f"Result: {num1} / {num2} = {result}")
             except ValueError as e:
                 print(str(e))
-        elif choice == '5':
-            result = exponent(num1, num2)
-            print(f"Result: {num1} ^ {num2} = {result}")
         else:
             print("Invalid choice. Please select a valid operation.")
 
