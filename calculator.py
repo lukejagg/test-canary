@@ -12,6 +12,11 @@ def divide(x, y):
         raise ValueError("Cannot divide by zero!")
     return x / y
 
+def exponent(base, exponent):
+    if not isinstance(base, (int, float)) or not isinstance(exponent, (int, float)):
+        raise ValueError("Both base and exponent must be numbers!")
+    return base ** exponent
+
 def calculator():
     print("Welcome to the Interactive Calculator!")
 
@@ -21,7 +26,8 @@ def calculator():
         print("2. Subtract")
         print("3. Multiply")
         print("4. Divide")
-        print("5. Quit")
+        print("5. Exponent")
+        print("6. Quit")
 
         choice = input("Enter your choice (1-5): ")
 
@@ -49,6 +55,12 @@ def calculator():
             try:
                 result = divide(num1, num2)
                 print(f"Result: {num1} / {num2} = {result}")
+            except ValueError as e:
+                print(str(e))
+        elif choice == '5':
+            try:
+                result = exponent(num1, num2)
+                print(f"Result: {num1} ^ {num2} = {result}")
             except ValueError as e:
                 print(str(e))
         else:
