@@ -15,7 +15,24 @@ python train.py
 ```
 
 ## Web Development
-The web development part of the project involves setting up and running a web server. More details on this will be added soon.
+The web development part of the project involves setting up and running a web server. The server is built using Node.js and Express.js. To set up the development environment, you will need to have Node.js and npm installed. You can install them with the following commands:
+
+```
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
+nvm install node
+```
+
+Once you have Node.js and npm installed, you can install the project dependencies with the following command:
+
+```
+npm install
+```
+
+To run the web server, use the following command:
+
+```
+npm start
+```
 
 ## Calculator Script
 The calculator script (`calculator.py`) is a simple interactive calculator that can perform basic arithmetic operations. You can run it with the following command:
