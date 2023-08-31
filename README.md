@@ -1,4 +1,4 @@
-# test
+# Test-Canary: Miscellaneous Files for ML + Web Development
 This project is a collection of miscellaneous files used for machine learning and web development. It includes a variety of scripts and configuration files that demonstrate different aspects of these fields, such as training a convolutional neural network, creating a simple web page, and performing basic arithmetic operations.
 
 ## Installation and Usage
